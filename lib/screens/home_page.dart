@@ -54,19 +54,25 @@ class HomePage extends StatelessWidget {
               // Stats Cards
 
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  _buildStatCard(AppString.inProgressTxt, '🐣',
-                      '2 ${AppString.workoutsTxt}', Colors.white),
-                  const SizedBox(height: 16),
-                  _buildStatCard(
-                      AppString.timeSpentTxt, '⏰', '62 Minutes', Colors.white),
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: _buildStatCard(AppString.inProgressTxt, '🐣',
+                      '2 ${AppString.workoutsTxt}', Colors.white),),
+                  const SizedBox(width: 16),
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: _buildStatCard(
+                      AppString.timeSpentTxt, '⏰', '62 Minutes', Colors.white),)
                 ],
               ),
               const SizedBox(height: 26),
-
               _buildProgressCard(
                   AppString.finishedDays, '💪', '30', Colors.white, context),
+
+              const SizedBox(height: 26),
+
+
             ],
           ),
         ),
@@ -89,8 +95,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      child: Expanded(
-          child: Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (emoji.isNotEmpty && isLarge)
@@ -116,7 +121,7 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ],
-      )),
+      ),
     );
   }
 
